@@ -67,7 +67,7 @@ Human genome sequence reference
 If you have questions about DOWAS2, you may send the questions to chenyr@mail.sustc.edu.cn or chenkj@mail.sustc.edu.cn or 11749245@mail.sustc.edu.cn or caow@mail@sustc.edu.cn . You may also ask questions in forums such as BioStar and SEQanswers.
 
 ## Update info
-####DOWAS2v0.1.2
+#### DOWAS2v0.1.2
 fix some bug, add reference and software check before run main program.
 
 ## Author
