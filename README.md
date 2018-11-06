@@ -1,6 +1,6 @@
 # DOWAS2 manual
-### update date: 2018/10/31
-### version 0.1.1
+### update date: 2018/11/6
+### version 0.1.2
 
 ## Introduction
 DOWAS2 is a software made of python script and linux shell script. It is made for find potential off-target sites from reference and germline sequencing data in human. It consists of 5 pl scripts and 9 shell script files, run.py is the main and enter script. All information you need to input should be written in a xml file like example.xml and run ‘python run.py example’ in your computer. in that case, DOWAS2 will open ‘/your/current/path/example.xml’ and generate a folder in current path with same name with xml file (in that case it names ‘example’) and put all results in this folder.
@@ -21,8 +21,8 @@ DOWAS2 have a better software stracture and can overcome shortage 1,3,5,6,7 in D
 ## Getting started
 ```
 cd /your/path
-tar czvf DOWAS2v0.1.1.tar.gz 
-cd DOWAS2v0.1.1
+tar czvf DOWAS2v0.1.2.tar.gz 
+cd DOWAS2v0.1.2
 # Write your own config file, you can refer to example.xml
 python run.py example
 ```
@@ -67,6 +67,8 @@ Human genome sequence reference
 If you have questions about DOWAS2, you may send the questions to chenyr@mail.sustc.edu.cn or chenkj@mail.sustc.edu.cn or 11749245@mail.sustc.edu.cn or caow@mail@sustc.edu.cn . You may also ask questions in forums such as BioStar and SEQanswers.
 
 ## Update info
+####DOWAS2v0.1.2
+fix some bug, add reference and software check before run main program.
 
 ## Author
 DOWAS2 is written by Chen Kaijing, Chen Yangran, ChenRui and Cao Wei.

@@ -26,7 +26,9 @@ for seq_data in root.find('rawdata_list'):
         exec('{}=[]'.format(seq_data.tag))
         member_list.append(seq_data.tag)
     exec('{}.append({})'.format(seq_data.tag,seq_data.attrib))
-os.system('./0.sh {}'.format(config))#建各种ref文件    
+if(os.system('./0.sh {}'.format(config))):
+    print('FATAL ERROR: bulid reference error, please check your config xml file!')
+    sys.exit(1)#建各种ref文件     
 def make_ped_file(project_name,member_list):  
     if not os.path.exists('./{}/metadata'.format(project_name)):
         os.makedirs('./{}/metadata'.format(project_name))

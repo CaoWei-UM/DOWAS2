@@ -22,7 +22,6 @@
 		<fastp>./bin/fastp</fastp>
 		<bedtools>./bin/bedtools</bedtools>
 		<mosdepth>./bin/mosdepth</mosdepth>
-		<vcftools>./bin/vcftools</vcftools>
 		<reference>/4/ref/hg19.fa</reference>
 		<guide_RNA_seq>ATGTCAGTCATAGTTAAGAC</guide_RNA_seq>
 		<dbsnp>/4/ref/dbsnp_138.hg19.vcf</dbsnp>
