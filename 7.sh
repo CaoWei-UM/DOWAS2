@@ -47,10 +47,9 @@ index_Variants(){
 
 construct_haplotypes(){
 
-	    python ./construct_haplotypes_3.py ${metadata_dir} ${offspring} ${parent} ${reference}
+	    python ./construct_haplotypes_.py ${metadata_dir} ${offspring} ${parent} ${reference}
 
 }
-
 mapping_to_hap(){
 
 	    line_num_return=`wc -l ${metadata_dir}/${offspring}_${parent}.fa`
