@@ -52,6 +52,7 @@ vqsr_snp_mode(){
 	 -resource dbsnp,known=true,training=false,truth=false,prior=6.0:${dbsnp} \
 	 -an DP -an QD -an FS -an SOR -an ReadPosRankSum -an MQRankSum \
 	 -mode SNP \
+	 --max-gaussians ${1} \
 	 -tranche 100.0 -tranche 99.9 -tranche 99.0 -tranche 95.0 -tranche 90.0 \
 	 --tranches-file ${metadata_dir}/${family_name}.hc.snps.tranches \
 	 -rscript-file ${metadata_dir}/${family_name}.hc.snps.plots.R \
@@ -77,7 +78,7 @@ vqsr_indel_mode(){
 	 -resource mills,known=true,training=true,truth=true,prior=12.0:"${Mills_indel}" \
 	 -an DP -an QD -an FS -an SOR -an ReadPosRankSum -an MQRankSum \
 	 -mode INDEL \
-	 --max-gaussians 6 \
+	 --max-gaussians ${1} \
 	 -rscript-file ${metadata_dir}/${family_name}.hc.snps.indels.plots.R \
 	 --tranches-file ${metadata_dir}/${family_name}.hc.snps.indels.tranches \
 	 -O ${metadata_dir}/${family_name}.hc.snps.indels.recal \
@@ -122,8 +123,18 @@ variant_annotation(){
 ################ main program ##################
 source $configure_file
     merge_vcf #done
-    vqsr_snp_mode #done
-    vqsr_indel_mode #done
+	gaussians_threshold=6
+	while true; do
+		vqsr_snp_mode $gaussians_threshold
+		[ ! -e ${metadata_dir}/${family_name}.hc.snps.VQSR.vcf ] || break
+		gaussians_threshold=`expr $gaussians_threshold - 2`
+	done
+	gaussians_threshold=6
+	while true; do
+		vqsr_indel_mode $gaussians_threshold #done
+		[ ! -e ${metadata_dir}/${family_name}.hc.VQSR.vcf ] || break
+		gaussians_threshold=`expr $gaussians_threshold - 2`
+	done
     calculate_genotype_posteriors #done
     variant_annotation #done
 	
